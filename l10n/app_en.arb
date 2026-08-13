@@ -1,0 +1,185 @@
+{
+  "@@locale": "en",
+  "appName": "VYTRA",
+  "tagline": "See Health. Detect Early.",
+  "categoryLine": "AI HEALTH SCREENING",
+  "languageFooter": "A screening aid. Not a diagnosis.",
+  "languageTelugu": "తెలుగు",
+  "languageHindi": "हिन्दी",
+  "languageEnglish": "English",
+
+  "homeNewScreening": "New screening",
+  "homeOfflineReady": "Works without internet",
+  "homeMoreTools": "More tools",
+  "homeSettingsTooltip": "Settings",
+
+  "consentTitle": "Consent",
+  "consentBody": "VYTRA is a screening aid for trained health workers. It is not a medical diagnosis and it does not measure hemoglobin or bilirubin.\n\nIf you agree, the app will use the camera to photograph the inner eyelid and the white of the eye. The photographs are analysed on this phone and then discarded. They are not saved.\n\nThe app stores only the risk class (low, moderate, high, or unable to assess), the time, the phone model, a skin-tone category, and the lighting. It does not store a name, a photograph, or a location.\n\nStored records become eligible for deletion 30 days after capture and are removed the next time the app cleans up. If this phone is used in the study, an anonymised copy may also be sent to the study server when the phone is online. The server copy follows its own deletion schedule.\n\nYou may refuse. If you refuse, nothing is stored and the screening will not start.",
+  "@consentBody": {
+    "description": "LOCKED. In-app consent body. Must match 07_LOCALIZATION.md §3."
+  },
+  "consentAgree": "I agree",
+  "consentDecline": "Decline",
+
+  "discardTitle": "Discard this screening?",
+  "discardBody": "Nothing will be saved.",
+  "discardConfirm": "Discard",
+  "discardCancel": "Keep going",
+
+  "metaTitle": "About this visit",
+  "metaSkinTone": "Skin tone",
+  "metaFitzpatrick1": "I",
+  "metaFitzpatrick2": "II",
+  "metaFitzpatrick3": "III",
+  "metaFitzpatrick4": "IV",
+  "metaFitzpatrick5": "V",
+  "metaFitzpatrick6": "VI",
+  "metaWhoChose": "Who chose the tone?",
+  "metaPersonSaid": "Person said",
+  "metaIAssessed": "I assessed",
+  "metaLightNow": "Light right now",
+  "metaIndoorNatural": "Indoor window",
+  "metaIndoorArtificial": "Indoor bulb",
+  "metaOutdoorShade": "Outdoor shade",
+  "metaOutdoorDirect": "Outdoor sun",
+  "metaContinue": "Continue",
+
+  "whiteRefTitle": "Set the light",
+  "whiteRefCoach": "Hold the phone 15–20 cm above a plain white paper. Fill the box.",
+  "whiteRefFailDark": "Too dark. Move to a window or turn on a light.",
+  "whiteRefFailCast": "The paper looks tinted. Use a plain white sheet, not a wall or a desk.",
+  "whiteRefFailClip": "Too bright. Turn the phone or the paper out of direct glare.",
+  "whiteRefTorch": "Torch",
+
+  "captureAnemiaTitle": "Inner eyelid",
+  "captureJaundiceTitle": "White of the eye",
+  "captureAnemiaCoach": "Ask the person to look up. Gently pull the lower lid down. Fill the ring with the inner pink.",
+  "captureScleraCoach": "Ask the person to look toward their nose. Do not pull the lid. Fill the ring with the outer white.",
+  "captureHoldStill": "Hold still. The photo is blurry.",
+  "captureBrighter": "Need more light. Face a window.",
+  "captureLessSun": "Too bright. Step into shade.",
+  "captureEyeClosed": "The eye is closed. Ask them to look toward their nose.",
+  "captureUseThese": "Use these",
+  "captureTakeOneMore": "Take one more",
+  "captureAnalysing": "Reading the photo…",
+  "captureCounter": "{current} / {max}",
+  "@captureCounter": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "max": {"type": "int"}
+    }
+  },
+  "captureFallbackEllipse": "Aim with the ring. Face outline is not needed.",
+  "lampBlur": "Sharp",
+  "lampLight": "Light",
+  "lampEye": "Eye open",
+
+  "resultsTitle": "Screening result",
+  "resultsAnemia": "Anemia",
+  "resultsJaundice": "Jaundice",
+  "riskHigh": "High risk",
+  "riskModerate": "Moderate risk",
+  "riskLow": "Low risk",
+  "riskUnable": "Could not read",
+  "actionAnemiaHigh": "Refer to the PHC for a blood test today.",
+  "actionAnemiaModerate": "Watch closely. Refer to the PHC within 3 days, or sooner if the person feels worse.",
+  "actionAnemiaLow": "Continue routine care.",
+  "actionJaundiceHigh": "Refer to the PHC for a clinical check today.",
+  "actionJaundiceModerate": "Watch closely. Refer to the PHC within 24 hours, or sooner if the yellow colour increases.",
+  "actionJaundiceLow": "Continue routine care.",
+  "actionUnable": "This part could not be read. Refer if you are unsure.",
+  "bannerReferToday": "Immediate referral recommended. Accompany the person to the PHC today.",
+  "disclaimerFull": "This screening result is not a medical diagnosis. It is a triage aid for trained health workers only. All results require confirmation by a qualified medical professional. Do not make treatment decisions based on this result alone.",
+  "@disclaimerFull": {
+    "description": "LOCKED. Must appear on S08 and the PDF. Do not shorten."
+  },
+  "resultsGeneratePdf": "Generate PDF",
+  "resultsDone": "Done",
+  "resultsSaveFailed": "Could not save. Try again.",
+
+  "pdfTitle": "Referral note",
+  "pdfNameLabel": "Name or household number",
+  "pdfNameHint": "Optional",
+  "pdfNameNote": "This name is written on the PDF only. It is not saved in the app.",
+  "pdfCreate": "Create PDF",
+  "pdfFooter": "Generated by VYTRA {version}. This is not a medical document. For use by trained ASHA workers only.",
+  "@pdfFooter": {
+    "placeholders": {
+      "version": {"type": "String"}
+    }
+  },
+  "pdfPatientNotProvided": "Patient: [Not provided]",
+  "pdfPatientLabel": "Patient: {name}",
+  "@pdfPatientLabel": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+
+  "syncTitle": "Saved screenings",
+  "syncPending": "Waiting",
+  "syncSynced": "Sent",
+  "syncFailed": "Not sent",
+  "syncEmpty": "No screenings on this phone.",
+
+  "settingsTitle": "Settings",
+  "settingsLanguage": "Language",
+  "settingsLicences": "Open-source licences",
+  "settingsVersions": "App {app}  ·  {algorithm}  ·  {threshold}",
+  "@settingsVersions": {
+    "placeholders": {
+      "app": {"type": "String"},
+      "algorithm": {"type": "String"},
+      "threshold": {"type": "String"}
+    }
+  },
+
+  "researchTitle": "Research view",
+  "researchPinLabel": "PIN",
+  "researchUnlock": "Unlock",
+  "researchWrongPin": "That PIN is wrong.",
+  "researchWarning": "Research view — do not show the patient.",
+  "researchNoScreening": "No screening on this phone yet.",
+
+  "permCameraRequired": "Camera permission is required to screen.",
+  "permCameraDenied": "Camera is blocked. Enable it in system settings to continue.",
+
+  "errorGeneric": "Something went wrong. Try again.",
+
+  "secondaryTitle": "More tools",
+  "secondaryNeedInternet": "These tools need internet. The main screening still works offline.",
+  "secondaryInternetWarning": "These tools need internet. Photos are sent to an outside service. Not a diagnosis.",
+  "secondarySkin": "Skin check",
+  "secondaryTeeth": "Teeth check",
+  "secondarySkinSubtitle": "Experimental · needs net",
+  "secondaryTeethSubtitle": "Experimental · needs net",
+  "secondaryNotConfigured": "Not configured",
+  "secondaryThirdPartyNote": "This photo was sent to an outside service and was not stored in VYTRA.",
+  "secondaryModelBusy": "The model is busy. Try again in a moment.",
+  "secondaryConfigError": "This tool is not set up on this build.",
+  "secondarySkinConsent": "If you agree, a photo of the skin will be sent to Hugging Face for an experimental label. It is not a diagnosis. It is not stored in the VYTRA health database. You may refuse.",
+  "secondaryTeethConsent": "If you agree, a photo of the teeth will be sent to Roboflow for an experimental score. It is not a diagnosis. It is not stored in the VYTRA health database. You may refuse.",
+  "secondarySuggestedCheck": "Suggested check",
+  "secondaryModelScore": "Model score: {pct}%",
+  "@secondaryModelScore": {
+    "placeholders": {
+      "pct": {"type": "int"}
+    }
+  },
+  "secondaryAlsoConsidered": "Also considered",
+  "secondaryAbcde": "ABCDE guide",
+  "secondaryAbcdeA": "Asymmetry",
+  "secondaryAbcdeB": "Border irregularity",
+  "secondaryAbcdeC": "Colour variation",
+  "secondaryAbcdeD": "Diameter larger than about 6 mm",
+  "secondaryAbcdeE": "Evolving (changing)",
+  "secondaryAbcdeFooter": "This guide is for awareness. Only a clinician can assess a mole.",
+  "secondaryAlignmentScore": "Alignment score (estimate)",
+  "secondaryGradeA": "Looks evenly spaced",
+  "secondaryGradeB": "Mostly even",
+  "secondaryGradeC": "Some crowding or gaps",
+  "secondaryGradeD": "Clear crowding or gaps",
+  "secondaryGradeF": "Very uneven — clinical check",
+  "secondaryTeethAdvice": "An orthodontist or dentist can say if treatment is needed.",
+  "secondaryNotADiagnosis": "Experimental label. Not a diagnosis."
+}

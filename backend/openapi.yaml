@@ -1,0 +1,214 @@
+openapi: 3.0.3
+info:
+  title: VYTRA study API
+  version: 1.0.0
+  description: >
+    Optional sync for anonymous ASHA screenings. Core screening does not
+    require this server. device_id is taken from JWT.sub, never from the body.
+servers:
+  - url: /api/v1
+paths:
+  /health:
+    get:
+      operationId: health
+      security: []
+      responses:
+        "200":
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [ok, ts]
+                additionalProperties: false
+                properties:
+                  ok: { type: boolean }
+                  ts: { type: string }
+  /devices/register:
+    post:
+      operationId: registerDevice
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterRequest"
+      responses:
+        "201":
+          description: token issued
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TokenResponse"
+        "403":
+          description: org_code not allowed
+  /sync:
+    post:
+      operationId: sync
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SyncRequest"
+      responses:
+        "200":
+          description: upsert result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SyncResponse"
+        "401":
+          description: missing, expired, or revoked token
+        "413":
+          description: more than 100 screenings
+  /devices/revoke:
+    post:
+      operationId: revokeDevice
+      security:
+        - adminKey: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RevokeRequest"
+      responses:
+        "200":
+          description: revoked
+        "401":
+          description: bad admin key
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    adminKey:
+      type: apiKey
+      in: header
+      name: X-Admin-Key
+  schemas:
+    RegisterRequest:
+      type: object
+      additionalProperties: false
+      required: [device_id, org_code]
+      properties:
+        device_id: { type: string, format: uuid }
+        org_code: { type: string }
+        app_version: { type: string }
+    TokenResponse:
+      type: object
+      additionalProperties: false
+      required: [access_token, token_type, expires_at]
+      properties:
+        access_token: { type: string }
+        token_type: { type: string, enum: [bearer] }
+        expires_at: { type: string, format: date-time }
+    RevokeRequest:
+      type: object
+      additionalProperties: false
+      required: [device_id]
+      properties:
+        device_id: { type: string, format: uuid }
+    SyncRequest:
+      type: object
+      additionalProperties: false
+      required: [screenings, captures]
+      properties:
+        screenings:
+          type: array
+          maxItems: 100
+          items:
+            $ref: "#/components/schemas/Screening"
+        captures:
+          type: array
+          items:
+            $ref: "#/components/schemas/Capture"
+    SyncResponse:
+      type: object
+      additionalProperties: false
+      required: [accepted_screening_ids, rejected]
+      properties:
+        accepted_screening_ids:
+          type: array
+          items: { type: string }
+        rejected:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            required: [id, reason]
+            properties:
+              id: { type: string }
+              reason: { type: string }
+    Screening:
+      type: object
+      additionalProperties: false
+      required:
+        - screening_id
+        - captured_at
+        - anemia_risk
+        - jaundice_risk
+        - valid_anemia_count
+        - valid_jaundice_count
+        - algorithm_version
+        - threshold_version
+        - app_version
+        - consent_recorded_at
+      properties:
+        screening_id: { type: string, format: uuid }
+        captured_at: { type: string }
+        anemia_risk:
+          $ref: "#/components/schemas/Risk"
+        jaundice_risk:
+          $ref: "#/components/schemas/Risk"
+        anemia_a_star: { type: number, nullable: true }
+        jaundice_b_star: { type: number, nullable: true }
+        valid_anemia_count: { type: integer, minimum: 0, maximum: 3 }
+        valid_jaundice_count: { type: integer, minimum: 0, maximum: 3 }
+        final_quality_score: { type: number, nullable: true }
+        algorithm_version: { type: string }
+        threshold_version: { type: string }
+        app_version: { type: string }
+        device_model: { type: string, nullable: true }
+        fitzpatrick_scale: { type: integer, minimum: 1, maximum: 6, nullable: true }
+        fitzpatrick_assessment_method:
+          type: string
+          nullable: true
+          enum: [SELF_REPORTED, WORKER_ASSESSED]
+        ambient_lighting:
+          type: string
+          nullable: true
+          enum: [INDOOR_NATURAL, INDOOR_ARTIFICIAL, OUTDOOR_SHADE, OUTDOOR_DIRECT]
+        consent_recorded_at: { type: string }
+    Capture:
+      type: object
+      additionalProperties: false
+      required: [capture_id, screening_id, series, capture_index, valid, captured_at]
+      properties:
+        capture_id: { type: string, format: uuid }
+        screening_id: { type: string, format: uuid }
+        series: { type: string, enum: [ANEMIA, JAUNDICE] }
+        capture_index: { type: integer, minimum: 1, maximum: 3 }
+        blur_score: { type: number, nullable: true }
+        exposure_score: { type: number, nullable: true }
+        eye_openness_score: { type: number, nullable: true }
+        roi_quality_score: { type: number, nullable: true }
+        white_reference_score: { type: number, nullable: true }
+        anemia_a_star: { type: number, nullable: true }
+        jaundice_b_star: { type: number, nullable: true }
+        l_star: { type: number, nullable: true }
+        valid: { type: integer, enum: [0, 1] }
+        rejection_reason:
+          type: string
+          nullable: true
+          enum: [BLUR, EXPOSURE_DARK, EXPOSURE_BRIGHT, EYE_CLOSED, ROI_TOO_SMALL, WHITE_REF_FAIL, MESH_MISSING, OTHER]
+        mesh_used: { type: integer, enum: [0, 1], default: 0 }
+        captured_at: { type: string }
+    Risk:
+      type: string
+      enum: [LOW, MODERATE, HIGH, UNABLE_TO_ASSESS]
