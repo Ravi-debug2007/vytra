@@ -1,0 +1,420 @@
+VYTRA — PPT GENERATION BRIEF
+Use this file as the only input for an external slide tool (Gamma, Copilot, ChatGPT, Canva, official SIH template).
+Do not invent extra features. Do not add a 7th slide unless the college template forces one.
+If the college/SPOC gives an official SIH .pptx template, COPY these bullets into THAT template. Do not redesign the official headers.
+
+================================================================================
+0. HARD RULES FOR THE GENERATOR
+================================================================================
+
+SLIDE COUNT: exactly 6 including the title slide (SIH idea-submission format).
+LAYOUT: 16:9 widescreen.
+STYLE: points and simple diagrams only. No paragraphs. No walls of text.
+TONE: honest, rural, buildable. Not a wellness app. Not a hospital EHR. Not a medical-device ad.
+
+TEAM NAME: VYTRA
+  - Must NOT contain MRCET, college, Hyderabad, or institute name.
+
+DISPLAY NAME ON SLIDES: VYTRA
+LOGO WORDMARK: lowercase "vytra" — use the official PNG, do not redraw the V.
+CATEGORY LINE UNDER LOGO (title slide only): AI HEALTH SCREENING
+TAGLINE (title / home of deck only): See Health. Detect Early.
+BACKRONYM (title slide small print OR slide 6 only, never on a results mockup):
+  VYTRA = Vision + Vitality + Tracking + AI
+  V Vision | Y Your health | T Tracking | R Recognition / Response | A AI / Analysis
+
+COLOURS (from official logo — use these hex values):
+  Forest (V, headers, wordmark):  #0E2A1C
+  Pulse lime (accent, tagline):    #6CA532
+  Soft green chip:                 #E8F3DC
+  Ink text:                        #0F172A
+  Muted text:                      #475467
+  White background:                #FFFFFF
+  Risk high:                       #B42318
+  Risk moderate:                   #B54708
+  Risk low:                        #027A48
+  Risk unable:                     #475467
+
+LOGO FILES TO ATTACH (do not invent a second mark):
+  brand/vytra_logo_lockup.png   = V + leaf-pulse + "vytra" + AI HEALTH SCREENING
+  brand/vytra_mark.png          = V + leaf-pulse + green dot only (corner icon)
+
+NEVER PUT ON ANY SLIDE:
+  - the designer note "leaf-pulse concept — vitality + diagnostics"
+  - the word "diagnostics" or "diagnoses" as a product claim
+  - "clinically validated", "95% accurate", "FDA", "CE", "ICMR approved"
+  - hemoglobin or bilirubin numbers
+  - "works on newborns" / neonatal jaundice as a v1 feature
+  - "Tamir 2017 proved our thresholds"
+  - skin-disease scanner or teeth-alignment scanner as the main product
+  - AnamoAI (retired working title)
+  - team name with MRCET inside it
+  - stock photos of crying babies or blood bags
+
+DISCLAIMER (put on slide 6, small but readable — not behind a footer joke):
+  "This screening result is not a medical diagnosis. It is a triage aid for trained
+   health workers only. All results require confirmation by a qualified medical
+   professional. Do not make treatment decisions based on this result alone."
+
+FILL THESE BLANKS BEFORE EXPORT (they appear on slide 1 and 6):
+  Problem statement ID:     _______________
+  Official PS title:        _______________
+  Category:                 Software
+  Institute:                MRCET, Hyderabad
+  Team leader:              Ravikiran Allampalli
+  Faculty mentor:           _______________
+  Member 2:                 _______________
+  Member 3:                 _______________
+  Member 4:                 _______________
+  Member 5:                 _______________
+  Member 6:                 _______________
+  Rule: exactly 6 students, same college, at least one woman.
+
+ONE-SENTENCE IDEA (use on slide 1 subtitle and any portal "idea description" box):
+  VYTRA is an offline-first Android screening aid that lets an ASHA worker
+  photograph the everted lower eyelid and the temporal sclera, receive anemia
+  and jaundice risk classes (low / moderate / high / unable to assess), and
+  share a referral PDF — with no internet, no consumables, and no claim of
+  medical diagnosis.
+
+CORRIDOR SENTENCE (if you need a 10-word lockup):
+  Offline phone app for ASHA workers. Risk class. Not a diagnosis.
+
+================================================================================
+1. SLIDE 1 — TITLE
+================================================================================
+
+Official SIH heading: Title
+
+LEFT or TOP: official logo lockup (vytra_logo_lockup.png). Do not typeset a second wordmark.
+
+TEXT:
+  Event:     Smart India Hackathon 2026 — College idea submission
+  Team:      VYTRA
+  Idea title: VYTRA — Offline smartphone screening aid for anemia and jaundice
+  Tagline:   See Health. Detect Early.
+  One line:  A triage aid for ASHA workers at the household visit.
+             Not a diagnosis. Not a medical device.
+
+  Team name:     VYTRA
+  Category:      Software  ·  Health
+  Institute:     MRCET, Hyderabad
+  Team leader:   Ravikiran Allampalli
+  PS ID:         [LOCK THIS]
+  Official PS:   [paste official title, or write "Student Innovation"]
+  Mentor:        [name]
+
+Footer: 6 members  ·  at least 1 woman  ·  team name contains no college name
+
+================================================================================
+2. SLIDE 2 — PROPOSED SOLUTION
+================================================================================
+
+Official SIH heading: Proposed solution
+  Must cover: detailed explanation / how it addresses the problem / uniqueness
+
+THREE COLUMNS (or three stacked blocks):
+
+A. THE PROBLEM
+  - ASHA household visits have no lab and no hemoglobinometer.
+  - Anemia in pregnancy is common; referral is still guesswork.
+  - Visible jaundice is easy to miss in indoor light.
+  - Families often never self-present at the PHC.
+  - Extra gadgets and per-test fees die in the field.
+
+B. WHAT VYTRA IS
+  - Android app. Rear camera only. Zero consumables.
+  - Photo 1 — everted lower lid (inner pink) → anemia risk.
+  - Photo 2 — outer white of the open eye → jaundice risk.
+  - Output: Low / Moderate / High / Unable to assess.
+  - One referral PDF a PHC doctor can read.
+  - Works in airplane mode. Telugu + English.
+
+C. WHAT VYTRA IS NOT
+  - Not a diagnosis.
+  - Not a hemoglobin or bilirubin number.
+  - Not a certified medical device.
+  - Not a newborn / neonate tool in v1.
+  - Not a cloud AI that needs 4G.
+  - Not a consumer wellness selfie app.
+
+UNIQUENESS STRIP (one line under the columns):
+  Field protocol (pull the lid) + honest Unable-to-assess + Telugu-first UI
+  + photo never saved + name only on the PDF.
+  The "AI" is on-device colour maths — auditable, not a black box.
+
+Optional tiny flow icons (no screenshots required):
+  Consent → White paper → Lid x2–3 → Sclera x2–3 → Risk class → PDF
+
+================================================================================
+3. SLIDE 3 — TECHNICAL APPROACH
+================================================================================
+
+Official SIH heading: Technical approach
+  Must cover: technologies + methodology / flowchart
+
+TITLE LINE:
+  On-device pipeline. No cloud inference. No extra hardware.
+
+FLOW (8 steps, horizontal):
+  1 Consent
+  2 Visit note (skin-tone category + lighting)
+  3 White paper (light calibration)
+  4 Lid photos x2–3
+  5 Sclera photos x2–3
+  6 Median of valid shots
+  7 Risk class
+  8 Referral PDF
+
+THREE CARDS:
+
+STACK
+  - Flutter / Dart  ·  Android 8+
+  - Google ML Kit Face Mesh (aim only; Android-only Beta)
+  - CIELAB colour maths on the phone (true Lab, not OpenCV uint8 Lab)
+  - Encrypted SQLite (SQLCipher)  ·  local first
+  - FastAPI sync  ·  optional, never required for a screening
+
+SIGNAL
+  - Anemia: conjunctiva a* (red–green)
+  - Jaundice: sclera b* (yellow–blue)
+  - At least 2 valid photos per series, then median
+  - Fewer than 2 valid → UNABLE TO ASSESS (never fake Low)
+  - Bins are prototype heuristics — not lab cutoffs
+
+QUALITY GATES
+  - Blur (Laplacian) + exposure
+  - Eye-open check on sclera shots
+  - White-paper calibration for room light
+  - Static ellipse if Face Mesh drops (expected when the lid is pulled)
+  - JPEG never written to disk
+
+WHY THIS FITS A HACKATHON (2 lines):
+  No custom optics, no model training, no 4G at the bedside.
+  If time slips: mock cloud sync; cut Hindi, dashboards, neonate path.
+
+DO NOT put a neural-net architecture diagram. There is no trained diagnostic net.
+
+================================================================================
+4. SLIDE 4 — FEASIBILITY AND VIABILITY
+================================================================================
+
+Official SIH heading: Feasibility and viability
+  Must cover: feasibility + challenges/risks + how you overcome them
+
+TITLE LINE:
+  Six students. Fourteen days after nomination. Known risks, named cuts.
+
+LEFT — WHY IT IS BUILDABLE
+  - Hardware the ASHA already carries: her Android phone.
+  - Colour maths is deterministic and unit-testable.
+  - Spec pack already frozen (screens, schema, Telugu strings).
+  - Demo path is airplane-mode complete. Venue Wi-Fi cannot kill it.
+  - Team of 6: 2 Flutter, 1 vision, 1 backend, 1 design, 1 lead.
+  - Sideloaded APK. No Play Store in the study window.
+  - Minimum device: Android 8, ~8 MP rear camera, Snapdragon 665 class.
+
+RIGHT — RISKS AND MITIGATION
+  - Phone colour science differs
+      → white-paper gains; log device model; no cross-phone accuracy claim.
+  - Pulling the eyelid breaks Face Mesh
+      → static ellipse is the anemia path. Designed, not a bug.
+  - Newborn faces fail the mesh
+      → neonates explicitly out of v1.
+  - Telugu PDF may render as boxes
+      → Day-1 font-embed go/no-go.
+  - Mesh under 20 FPS on a cheap SoC
+      → drop overlay, keep quality gates.
+  - Ethics / consent
+      → paper form + in-app gate; faculty signs copy.
+
+BOTTOM — IF TIME SLIPS (three chips)
+  KEEP:  capture, quality gates, CIELAB class, disclaimer, local save, PDF, Telugu
+  MOCK:  cloud sync and any admin view
+  CUT:   Hindi, research PIN view, neonate path, ABDM, skin/teeth demos
+
+================================================================================
+5. SLIDE 5 — IMPACT AND BENEFITS
+================================================================================
+
+Official SIH heading: Impact and benefits
+  Must cover: target audience + social / economic / (optional) environmental
+
+TITLE LINE:
+  A zero-rupee test in the only place screening actually happens: the home.
+
+FOUR STAT CHIPS (do not invent new numbers):
+  57%     of Indian women 15–49 are anemic (NFHS-5)
+  ~1M     ASHA workers already visit those homes
+  Rs 0    consumable cost per screening
+  0 net   required at the bedside; PDF still generates
+
+WHO BENEFITS
+  - ASHA — 3–5 minute, icon-first flow and a paper she can hand over.
+  - Pregnant / postnatal woman — earlier PHC referral, not a label.
+  - PHC medical officer — a structured note, with the disclaimer on it.
+  - Health system — no new device procurement, no reagent budget.
+
+SOCIAL / ECONOMIC / PRIVACY
+  - Social: documents a referral that today is only a verbal hunch.
+  - Economic: uses hardware already issued or owned.
+  - Privacy: no photo, no GPS, no name in the database.
+  - 30-day deletion eligibility on the phone; uninstall wipes local data.
+
+Do not claim lives-saved counts. Do not claim clinical accuracy.
+
+================================================================================
+6. SLIDE 6 — RESEARCH, REFERENCES, TEAM
+================================================================================
+
+Official SIH heading: Research / references (and team if the template has no other place)
+
+TITLE LINE:
+  Prior art is cited honestly. The product is the field system.
+
+LEFT — PRIOR WORK (we do not over-claim)
+  - Tamir et al., IEEE R10-HTC 2017 — RGB red-vs-green threshold, n=19,
+    78.9% agreement with blood Hb. Prior art. NOT the source of our a* bins.
+  - Later CIELAB conjunctiva papers (e.g. Dimauro and others) — colour-space precedent.
+  - Skinopathy AI, arXiv:2603.00161 (2026 preprint) — similar LAB idea in a
+    browser demo. Contemporaneous prototype, not our validation.
+
+RIGHT — WHAT IS OURS
+  - ASHA household protocol, not a clinic selfie tool.
+  - Everted-lid choreography + ellipse fallback when mesh drops.
+  - Unable-to-assess instead of a fake Low.
+  - Telugu locked safety copy + referral PDF.
+  - Offline-first with a written 14-day cut list.
+
+TEAM BLOCK (fill names)
+  Team VYTRA
+  Leader   Ravikiran Allampalli     Flutter / product
+  M2       ____________________     Vision / CIELAB
+  M3       ____________________     Flutter / storage
+  M4       ____________________     Backend
+  M5       ____________________     Design
+  M6       ____________________     Pitch / docs
+  Mentor   ____________________
+  Rule: at least one woman among the six.
+
+DISCLAIMER BOX (verbatim):
+  This screening result is not a medical diagnosis. It is a triage aid for
+  trained health workers only. All results require confirmation by a qualified
+  medical professional. Do not make treatment decisions based on this result alone.
+
+Footer: Generated for SIH 2026 college nomination  ·  Team VYTRA  ·  MRCET
+        This is not a medical document.
+
+================================================================================
+7. OPTIONAL DIAGRAMS (describe them; do not invent extra science)
+================================================================================
+
+DIAGRAM A — visit flow (slide 2 or 3)
+  [Phone] --consent--> [White paper] --lid--> [Sclera] --class--> [PDF] --> [WhatsApp / print]
+  Side note: all of this works with airplane mode on.
+
+DIAGRAM B — what is photographed (slide 2)
+  Two simple line drawings, no realistic eyes, no blood:
+    1) finger gently pulling lower lid, ring over inner pink  = anemia
+    2) person looking toward nose, ring over outer white     = jaundice
+
+DIAGRAM C — local vs cloud (slide 3 or 4)
+  Core path: Camera --> on-device CIELAB --> SQLite --> PDF     (no internet)
+  Optional:  later sync of anonymous risk classes --> study server
+  Do not draw a cloud over the core path.
+
+================================================================================
+8. SPEAKER NOTES (3 minutes — paste into notes pane)
+================================================================================
+
+SLIDE 1 (15 s)
+  Good morning. We are team VYTRA from MRCET.
+  VYTRA is an offline smartphone screening aid for ASHA workers.
+  It does not diagnose. It helps a trained worker decide whether to refer today.
+
+SLIDE 2 (40 s)
+  In a village home there is no hemoglobinometer and no bilirubin lab.
+  The ASHA has a phone, twenty minutes, and a paper register.
+  VYTRA uses that phone. Inner lower eyelid for anemia. White of the eye for jaundice.
+  Output: low / moderate / high / unable to assess, plus a one-page referral PDF.
+  It never prints a hemoglobin number. It never says "you have anemia."
+  What is new is the field workflow: Telugu, no internet, no extra hardware,
+  and an honest unable-to-assess when the photo is bad.
+
+SLIDE 3 (50 s)
+  Stack is boring on purpose. Flutter on Android 8+. Face Mesh only to aim.
+  Colour is CIELAB on the phone — no cloud model, no per-test API cost.
+  Eight steps: consent, visit note, white paper, lid shots, sclera shots, median, class, PDF.
+  If she cannot get two clean photos, the app writes unable to assess. It does not invent low risk.
+
+SLIDE 4 (40 s)
+  Buildable in a hackathon. Six people. No custom lens. No training a neural net.
+  Hard parts we already admit: phones disagree on colour; pulling the lid breaks mesh;
+  newborns are out of v1 because the mesh is an adult-face model.
+  Mitigation: white paper, static guide, written cut list.
+
+SLIDE 5 (25 s)
+  NFHS-5: more than half of Indian women 15-49 are anemic. About a million ASHAs.
+  Zero rupees per test. Airplane mode. Photo discarded. No name in the database.
+
+SLIDE 6 (20 s)
+  Prior papers photographed the conjunctiva with RGB thresholds on tiny samples.
+  We cite them as prior art, not as our accuracy.
+  Please nominate team VYTRA. We will build the offline Android aid — not a medical device.
+
+IF CUT SHORT, SAY ONLY:
+  Offline phone app for ASHA workers. Inner eyelid and eye-white photos.
+  Risk class and a referral PDF. Not a diagnosis. Six people, no extra hardware.
+  Please nominate us.
+
+================================================================================
+9. Q&A LINES THE DECK MUST SUPPORT (do not put all of these on slides)
+================================================================================
+
+Q: Is this a medical device?
+A: No. Triage aid. Disclaimer on every result and every PDF. PHC still does the blood test.
+
+Q: Can it tell hemoglobin?
+A: No. Never displays Hb or bilirubin. Only Low / Moderate / High / Unable to assess.
+
+Q: What is the accuracy?
+A: We will not claim a clinical accuracy number. Thresholds are prototype heuristics.
+
+Q: Didn't Tamir already do this in 2017?
+A: Tamir used RGB R-vs-G on 19 people. Prior art. Our product is the ASHA workflow.
+
+Q: Why not a deep-learning model?
+A: A 14-day team cannot train a reliable on-device segmenter. Deterministic colour we can defend.
+
+Q: Newborn jaundice is the emergency. Why cut neonates?
+A: Face Mesh fails on newborn faces. Shipping kernicterus copy with a camera that cannot lock a face is unsafe. v2.
+
+Q: How do you photograph the inner eyelid?
+A: Look up, gently pull the lower lid, fill the ring with inner pink. Mesh often drops. Ellipse still works.
+
+Q: Internet?
+A: Core flow is airplane-mode complete, including the PDF.
+
+================================================================================
+10. WHAT NOT TO GENERATE EVEN IF THE TOOL SUGGESTS IT
+================================================================================
+
+- Extra slides: market size hockey-stick, "our AI model architecture", neonatal module,
+  skin/teeth scanners, ABDM/ABHA integration, Play Store mock, 99% accuracy badge.
+- A results-screen mockup that shows a* / b* numbers or "Hb = 8.2 g/dL".
+- A dark "diagnostics" lockup using the designer annotation from the logo source file.
+- Team name MRCET_VYTRA or VYTRA_MRCET.
+
+Skin-check and teeth-check exist only as optional internet demos in the app spec.
+They are NOT part of this nomination deck.
+
+================================================================================
+11. EXPORT
+================================================================================
+
+Filename:   VYTRA_SIH2026_Idea.pptx  and  VYTRA_SIH2026_Idea.pdf
+Check:      open the PDF on a phone; nothing clipped; Telugu not required on the deck
+            (deck is English; the APP is Telugu + English).
+After fill: PS ID, six names, mentor, then freeze. No "small edits" after college upload.
+
+END OF BRIEF

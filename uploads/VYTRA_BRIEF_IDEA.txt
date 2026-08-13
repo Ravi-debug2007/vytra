@@ -1,0 +1,127 @@
+VYTRA — BRIEF IDEA NOTE
+Smart India Hackathon 2026  ·  Team VYTRA  ·  MRCET
+See Health. Detect Early.
+
+--------------------------------------------------------------------------------
+WHAT IT IS
+--------------------------------------------------------------------------------
+
+VYTRA is an offline Android app for ASHA workers.
+
+During a household visit she photographs two things with the phone she already
+carries:
+
+  1. The inner pink of the lower eyelid (lid gently pulled down)  →  anemia risk
+  2. The outer white of the open eye                               →  jaundice risk
+
+The phone, with no internet, returns:
+
+  Low  /  Moderate  /  High  /  Unable to assess
+
+plus a one-page referral PDF she can send on WhatsApp or print.
+
+It does not print a hemoglobin or bilirubin number.
+It does not say “you have anemia.”
+It is a triage aid, not a diagnosis, not a medical device.
+A PHC doctor still does the real test.
+
+--------------------------------------------------------------------------------
+THE PROBLEM
+--------------------------------------------------------------------------------
+
+India can diagnose anemia and jaundice in a facility. The gap is earlier, at
+the house.
+
+  • No lab, no hemoglobinometer, often no 4G.
+  • The ASHA has a phone, a register, and a few minutes.
+  • “You look pale” does not travel to the PHC doctor.
+  • NFHS-5: a majority of Indian women 15–49 are anemic.
+  • Families often never walk in until it is late.
+
+Every alternative fails a field constraint: blood tests need travel; gadgets
+need money and training; cloud AI needs internet and uploads a face photo.
+
+--------------------------------------------------------------------------------
+HOW A VISIT WORKS
+--------------------------------------------------------------------------------
+
+  Language (Telugu / English)
+       → Consent (refuse = camera stays off)
+       → Skin-tone + lighting note
+       → Photo of plain white paper (corrects room light)
+       → 2–3 lid photos, then 2–3 eye-white photos
+       → Risk class on one screen, with a full medical disclaimer
+       → Optional name typed only for the PDF, then forgotten
+       → Share PDF
+
+If she cannot get two clean photos of one part, that part is
+“Unable to assess” — never silently marked Low.
+
+Works in airplane mode. Zero rupees per test. No extra hardware.
+
+--------------------------------------------------------------------------------
+WHAT “AI” ACTUALLY IS
+--------------------------------------------------------------------------------
+
+Not a cloud model. Not a hemoglobin predictor.
+
+On the phone, the app converts the colour of the chosen pixels to CIELAB
+(a standard colour space), looks at redness (a*) on the lid and yellowness
+(b*) on the eye-white, and puts that into three prototype buckets.
+
+Face Mesh is used only to aim at an open eye. When the lid is pulled, the
+mesh often fails — a drawn ring still works. That is designed, not a bug.
+
+Thresholds are prototype heuristics. They are not Tamir 2017 cutoffs
+(that paper used RGB on 19 people). We cite it as prior art, not as our accuracy.
+
+--------------------------------------------------------------------------------
+WHAT V1 WILL NOT DO
+--------------------------------------------------------------------------------
+
+  • Newborn / neonatal jaundice (Face Mesh is an adult-face model)
+  • Hemoglobin or bilirubin numbers
+  • “Clinically validated / 95% / ICMR approved”
+  • Extra lenses, Hindi-first UI, ABDM/ABHA, iOS, Play Store
+  • Skin or teeth scanners as the main product (optional internet demos only;
+    do not put them on the college PPT)
+
+--------------------------------------------------------------------------------
+PRIVACY (ONE PARAGRAPH)
+--------------------------------------------------------------------------------
+
+The photograph is analysed in memory and discarded. The database stores a risk
+class, time, phone model, skin-tone category and lighting — never a name, photo
+or GPS. A name typed for the PDF is written on the PDF only, then dropped.
+Records become eligible for deletion after 30 days.
+
+--------------------------------------------------------------------------------
+WHY THIS IS A GOOD SIH IDEA
+--------------------------------------------------------------------------------
+
+  Real Indian problem     ASHA visit, no lab, NFHS anemia burden
+  Buildable in 14 days    No extra hardware, no trained neural net
+  Honest                  Disclaimer, Unable-to-assess, neonates out
+  Field-fit               Offline, cheap phone, Telugu, Rs 0 per test
+
+Team name: VYTRA (must not contain the college name).
+Six members, at least one woman. Software. Leader: Ravikiran Allampalli.
+
+--------------------------------------------------------------------------------
+ONE SENTENCE (PORTAL / SLIDE 1)
+--------------------------------------------------------------------------------
+
+VYTRA is an offline-first Android screening aid that lets an ASHA worker
+photograph the everted lower eyelid and the temporal sclera, receive anemia
+and jaundice risk classes (low / moderate / high / unable to assess), and
+share a referral PDF — with no internet, no consumables, and no claim of
+medical diagnosis.
+
+--------------------------------------------------------------------------------
+IF SOMEONE STOPS YOU IN A CORRIDOR
+--------------------------------------------------------------------------------
+
+Offline phone app for ASHA workers. Inner eyelid and eye-white photos.
+Risk class and a referral PDF. Not a diagnosis. No extra hardware.
+
+END
