@@ -1,4 +1,4 @@
-/// True CIELAB D65 2°. Must match vision/cielab_reference.py ±0.05.
+// True CIELAB D65 2°. Must match vision/cielab_reference.py ±0.05.
 import 'dart:math' as math;
 
 const double kXn = 0.95047;

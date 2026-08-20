@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'src/vision/cielab.dart';
+import 'src/core/domain.dart';
+import 'src/features/capture_screen.dart';
+import 'src/features/results_screen.dart';
 
 void main() {
   runApp(const VytraApp());
@@ -138,7 +140,35 @@ class _MetadataScreenState extends State<MetadataScreen> {
   ]));
 }
 
-class WhiteReferenceScreen extends StatelessWidget { const WhiteReferenceScreen({super.key}); @override Widget build(BuildContext context) => _Shell(child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [const _StepLabel(step: '3 of 7', title: 'White reference'), const SizedBox(height: 24), const Icon(Icons.crop_square, size: 120, color: Color(0xFF6CA532)), const SizedBox(height: 20), const Text('Place the rear camera 15–20 cm above a matte white A4 sheet and fill the frame.', style: TextStyle(fontSize: 20, height: 1.4)), const Spacer(), FilledButton.icon(onPressed: () {}, icon: const Icon(Icons.camera_alt), label: const Padding(padding: EdgeInsets.all(16), child: Text('Capture white reference', style: TextStyle(fontSize: 18)))), const SizedBox(height: 16), const _FooterDisclaimer()])); }
+class WhiteReferenceScreen extends StatelessWidget {
+  const WhiteReferenceScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return _Shell(child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+      const _StepLabel(step: '3 of 7', title: 'White reference'),
+      const SizedBox(height: 24),
+      const Icon(Icons.crop_square, size: 120, color: Color(0xFF6CA532)),
+      const SizedBox(height: 20),
+      const Text('Place the rear camera 15–20 cm above a matte white A4 sheet and fill the frame.', style: TextStyle(fontSize: 20, height: 1.4)),
+      const Spacer(),
+      FilledButton.icon(
+        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => CaptureScreen(
+          series: Series.anemia,
+          onComplete: (anemia) => Navigator.push(context, MaterialPageRoute(builder: (_) => CaptureScreen(
+            series: Series.jaundice,
+            onComplete: (jaundice) => Navigator.push(context, MaterialPageRoute(builder: (_) => ResultsScreen(anemiaValues: anemia, jaundiceValues: jaundice))),
+          ))),
+        ))),
+        icon: const Icon(Icons.camera_alt),
+        label: const Padding(padding: EdgeInsets.all(16), child: Text('Capture white reference', style: TextStyle(fontSize: 18))),
+      ),
+      const SizedBox(height: 16),
+      const _FooterDisclaimer(),
+    ]));
+  }
+}
+
 
 class _Shell extends StatelessWidget { const _Shell({required this.child}); final Widget child; @override Widget build(BuildContext context) => Scaffold(body: SafeArea(child: Padding(padding: const EdgeInsets.fromLTRB(24, 20, 24, 18), child: child))); }
 class _BrandHeader extends StatelessWidget { const _BrandHeader(); @override Widget build(BuildContext context) => const Row(children: [Icon(Icons.visibility_outlined, size: 42, color: Color(0xFF6CA532)), SizedBox(width: 12), Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text('VYTRA', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w900, letterSpacing: 1.4)), Text('See Health. Detect Early.', style: TextStyle(fontSize: 13))])]); }
@@ -146,6 +176,5 @@ class _ChoiceButton extends StatelessWidget { const _ChoiceButton({required this
 class _StepLabel extends StatelessWidget { const _StepLabel({required this.step, required this.title}); final String step, title; @override Widget build(BuildContext context) => Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text(step.toUpperCase(), style: const TextStyle(color: Color(0xFF6CA532), fontWeight: FontWeight.w800, letterSpacing: 1.2)), const SizedBox(height: 5), Text(title, style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w800))]); }
 class _FooterDisclaimer extends StatelessWidget { const _FooterDisclaimer(); @override Widget build(BuildContext context) => const Text('This screening result is not a medical diagnosis. It is a triage aid for trained health workers only. All results require confirmation by a qualified medical professional. Do not make treatment decisions based on this result alone.', style: TextStyle(fontSize: 12, height: 1.3)); }
 
-// Keeps the canonical vision module referenced in the first scaffold slice.
-// The production capture flow must call this from a compute isolate.
-final _cielabReference = CielabConverter();
+// Canonical CIELAB functions live in lib/src/vision/cielab.dart.
+// Production capture analysis must call them from a compute isolate.
